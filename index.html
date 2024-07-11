@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vimeo Videos</title>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <style>
+        iframe {
+            width: 100%;
+            max-width: 1440px;
+            height: 810px;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="video1" src="https://player.vimeo.com/video/1?badge=0&autoplay=0&loop=1&controls=0&player_id=0&app_id=58479" allow="autoplay" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms"></iframe>
+    <iframe id="video2" src="https://player.vimeo.com/video/2?badge=0&autoplay=0&loop=1&controls=0&player_id=0&app_id=58479" allow="autoplay" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms"></iframe>
+    <iframe id="video3" src="https://player.vimeo.com/video/3?badge=0&autoplay=0&loop=1&controls=0&player_id=0&app_id=58479" allow="autoplay" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms"></iframe>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var iframes = document.querySelectorAll('iframe');
+        var players = [];
+        var options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+
+        iframes.forEach(function(iframe) {
+            var player = new Vimeo.Player(iframe);
+            players.push(player);
+
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        players.forEach(function(p) {
+                            if (p !== player) {
+                                p.pause();
+                            }
+                        });
+                        player.play();
+                    } else {
+                        player.pause();
+                    }
+                });
+            }, options);
+
+            observer.observe(iframe);
+        });
+    });
+    </script>
+</body>
+</html>
