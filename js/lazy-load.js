@@ -66,8 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       imagesArray.forEach((lazyImage) => {
         const rect = lazyImage.getBoundingClientRect();
-        const imageTop = rect.top + currentScroll;
-        const imageBottom = rect.bottom + currentScroll;
+        const imageTop = rect.top + window.scrollY;
+        const imageBottom = rect.bottom + window.scrollY;
 
         if (imageBottom >= loadRangeTop && imageTop <= loadRangeBottom) {
           loadImage(lazyImage);
