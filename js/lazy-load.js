@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Fallback for browsers that do not support IntersectionObserver
     const checkLoadUnload = () => {
       const viewportHeight = window.innerHeight;
-      const currentScroll = window.pageYOffset;
+      const currentScroll = window.scrollY;
       const loadRangeTop = Math.max(0, currentScroll - viewportHeight * 2);
       const loadRangeBottom = currentScroll + viewportHeight * 2;
 
