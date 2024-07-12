@@ -184,8 +184,3 @@ a:active {
 .lazy-loaded {
   opacity: 1;
 }
-.lazy-load-scatter {
-  width: 100%;
-  height: auto;
-  background-color: #faa9a9; /* Placeholder color */
-}
