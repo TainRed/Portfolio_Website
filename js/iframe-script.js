@@ -1,3 +1,4 @@
+// console.log("iframe linked");
 document.addEventListener("DOMContentLoaded", function () {
   var iframes = document.querySelectorAll("iframe");
   var players = [];
