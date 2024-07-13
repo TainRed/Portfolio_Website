@@ -1,3 +1,4 @@
+//new third try , re enable the observer
 document.addEventListener("DOMContentLoaded", function () {
   let lazyImages = document.querySelectorAll("img.lazy");
   let imagesArray = Array.from(lazyImages);
@@ -26,12 +27,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  const createLazyLoadObserver = () => {
-    const viewportHeight = window.innerHeight;
-    const rootMarginValue = `${viewportHeight * 2}px 0px ${
-      viewportHeight * 2
-    }px 0px`;
+  const updateRootMargin = () => {
+    const viewportHeight = Math.min(
+      document.documentElement.clientHeight,
+      window.innerHeight
+    );
+    let rootMarginFraction;
 
+    if (viewportHeight <= 600) {
+      rootMarginFraction = 0.5; // Adjust for smaller screens
+      console.log("we are using 599");
+    } else if (viewportHeight <= 800) {
+      rootMarginFraction = 0.75; // Adjust for medium-sized screens
+      console.log("we are using 799");
+    } else {
+      rootMarginFraction = 1.0; // Default for larger screens
+      console.log("we are using default");
+    }
+
+    const rootMarginValue = `${Math.floor(
+      viewportHeight * rootMarginFraction
+    )}px 0px`;
+
+    console.log(`Current rootMargin: ${rootMarginValue}`);
+    return rootMarginValue;
+  };
+
+  const createLazyLoadObserver = () => {
     lazyImageObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry) => {
@@ -44,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       },
       {
-        rootMargin: rootMarginValue,
+        rootMargin: updateRootMargin(),
       }
     );
 
@@ -53,33 +75,80 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
+  const checkLoadUnload = () => {
+    const viewportHeight = window.innerHeight;
+    const currentScroll = window.scrollY;
+    const loadRangeTop = Math.max(0, currentScroll - viewportHeight);
+    const loadRangeBottom = currentScroll + viewportHeight * 2;
+
+    imagesArray.forEach((lazyImage) => {
+      const rect = lazyImage.getBoundingClientRect();
+      const imageTop = rect.top + window.scrollY;
+      const imageBottom = rect.bottom + window.scrollY;
+
+      if (imageBottom >= loadRangeTop && imageTop <= loadRangeBottom) {
+        loadImage(lazyImage);
+      } else {
+        unloadImage(lazyImage);
+      }
+    });
+  };
+
+  const disconnectLazyLoadObserver = () => {
+    if (lazyImageObserver) {
+      imagesArray.forEach((lazyImage) => {
+        lazyImageObserver.unobserve(lazyImage);
+      });
+      lazyImageObserver.disconnect();
+      lazyImageObserver = null;
+    }
+  };
+
+  const handleNavigation = (event) => {
+    event.preventDefault();
+    const targetId = event.currentTarget.getAttribute("href").substring(1); // Get target section id
+    const targetSection = document.getElementById(targetId); // Get target section element
+
+    if (targetSection) {
+      disconnectLazyLoadObserver(); // Disconnect observer before navigating
+
+      // Scroll to the target section
+      window.scrollTo({
+        top: targetSection.offsetTop,
+        behavior: "smooth",
+      });
+
+      // Reinitialize the observer after scrolling
+      setTimeout(() => {
+        createLazyLoadObserver();
+      }, 1000); // Adjust timeout as needed based on animation duration
+    }
+  };
+
   // Initialize lazy loading
   if ("IntersectionObserver" in window) {
     createLazyLoadObserver();
   } else {
     // Fallback for browsers that do not support IntersectionObserver
-    const checkLoadUnload = () => {
-      const viewportHeight = window.innerHeight;
-      const currentScroll = window.scrollY;
-      const loadRangeTop = Math.max(0, currentScroll - viewportHeight * 2);
-      const loadRangeBottom = currentScroll + viewportHeight * 2;
-
-      imagesArray.forEach((lazyImage) => {
-        const rect = lazyImage.getBoundingClientRect();
-        const imageTop = rect.top + window.scrollY;
-        const imageBottom = rect.bottom + window.scrollY;
-
-        if (imageBottom >= loadRangeTop && imageTop <= loadRangeBottom) {
-          loadImage(lazyImage);
-        } else {
-          unloadImage(lazyImage);
-        }
-      });
-    };
-
     document.addEventListener("scroll", checkLoadUnload);
-    window.addEventListener("resize", checkLoadUnload);
-    window.addEventListener("orientationchange", checkLoadUnload);
+    window.addEventListener("resize", () => {
+      lazyImageObserver.disconnect();
+      lazyImageObserver = null;
+      createLazyLoadObserver();
+      checkLoadUnload();
+    });
+    window.addEventListener("orientationchange", () => {
+      lazyImageObserver.disconnect();
+      lazyImageObserver = null;
+      createLazyLoadObserver();
+      checkLoadUnload();
+    });
     checkLoadUnload(); // Initial check
   }
+
+  // Attach event listeners to navigation links
+  const navLinks = document.querySelectorAll(".js-scroll-trigger");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", handleNavigation);
+  });
 });
