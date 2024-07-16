@@ -10,32 +10,27 @@ body {
   color: #868e96;
 }
 
-@media (min-width: 992px) {
-  body {
-    padding-top: 0;
-    padding-left: 17rem;
-  }
-}
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Saira Extra Condensed", serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 700;
-  /* text-transform: uppercase; */
   color: #343a40;
 }
 
 h1 {
-  font-size: 6rem;
-  line-height: 5.5rem;
+  font-size: 2rem;
+  line-height: 2.25rem;
 }
 
 h2 {
-  font-size: 3.5rem;
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.25rem;
 }
 
 .subheading {
@@ -52,7 +47,7 @@ h2 {
   color: #bd5d38;
 }
 .list-social-icons a .fa-lg {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
 }
 
 .list-icons {
@@ -66,45 +61,6 @@ h2 {
   font-weight: 600;
 }
 
-@media (min-width: 992px) {
-  #sideNav {
-    text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    width: 17rem;
-    height: 100vh;
-  }
-  #sideNav .navbar-brand {
-    display: flex;
-    margin: auto auto 0;
-    padding: 0.5rem;
-  }
-  #sideNav .navbar-brand .img-profile {
-    max-width: 10rem;
-    max-height: 10rem;
-    border: 0.5rem solid rgba(255, 255, 255, 0.2);
-  }
-  #sideNav .navbar-collapse {
-    display: flex;
-    align-items: flex-start;
-    flex-grow: 0;
-    width: 100%;
-    margin-bottom: auto;
-  }
-  #sideNav .navbar-collapse .navbar-nav {
-    flex-direction: column;
-    width: 100%;
-  }
-  #sideNav .navbar-collapse .navbar-nav .nav-item {
-    display: block;
-  }
-  #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
-    display: block;
-  }
-}
 /* 
 section.resume-section {
   border-bottom: 1px solid #dee2e6;
@@ -113,22 +69,6 @@ section.resume-section {
 } */
 section.resume-section .resume-item .resume-date {
   min-width: none;
-}
-
-@media (min-width: 768px) {
-  section.resume-section {
-    min-height: 100vh;
-  }
-  section.resume-section .resume-item .resume-date {
-    min-width: 18rem;
-  }
-}
-
-@media (min-width: 992px) {
-  /* section.resume-section {
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
-  } */
 }
 
 .bg-primary {
@@ -238,12 +178,74 @@ a:active {
   cursor: default; /* Optionally, to remove pointer cursor */
   opacity: 0.5;
 }
-/* .horizontal-line {
+/* Don't delete, needed for the iframe load, unload, play and pause*/
+.horizontal-line {
   position: fixed;
   left: 0;
   right: 0;
-  top: 50%; 
+  top: 50%;
   height: 1px;
-  background-color: red;
-  z-index: 9999; 
-} */
+  background-color: none;
+  z-index: 9999;
+}
+@media (min-width: 992px) {
+  body {
+    padding-top: 0;
+    padding-left: 17rem;
+  }
+}
+@media (min-width: 992px) {
+  #sideNav {
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 17rem;
+    height: 100vh;
+  }
+  #sideNav .navbar-brand {
+    display: flex;
+    margin: auto auto 0;
+    padding: 0.5rem;
+  }
+  #sideNav .navbar-brand .img-profile {
+    max-width: 10rem;
+    max-height: 10rem;
+    border: 0.5rem solid rgba(255, 255, 255, 0.2);
+  }
+  #sideNav .navbar-collapse {
+    display: flex;
+    align-items: flex-start;
+    flex-grow: 0;
+    width: 100%;
+    margin-bottom: auto;
+  }
+  #sideNav .navbar-collapse .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+  #sideNav .navbar-collapse .navbar-nav .nav-item {
+    display: block;
+  }
+  #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  section.resume-section {
+    min-height: 100vh;
+  }
+  section.resume-section .resume-item .resume-date {
+    min-width: 18rem;
+  }
+}
+
+@media (min-width: 992px) {
+  /* section.resume-section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  } */
+}
