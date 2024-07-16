@@ -125,10 +125,10 @@ section.resume-section .resume-item .resume-date {
 }
 
 @media (min-width: 992px) {
-  section.resume-section {
+  /* section.resume-section {
     padding-top: 3rem !important;
     padding-bottom: 3rem !important;
-  }
+  } */
 }
 
 .bg-primary {
@@ -237,4 +237,13 @@ a:active {
   pointer-events: none;
   cursor: default; /* Optionally, to remove pointer cursor */
   opacity: 0.5;
+}
+.horizontal-line {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 50%; /* Adjust to position the line */
+  height: 1px;
+  background-color: red; /* Adjust color as needed */
+  z-index: 9999; /* Ensure it's above other elements */
 }
