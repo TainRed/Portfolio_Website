@@ -3,6 +3,7 @@
  * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-resume/blob/master/LICENSE)
  */
+
 body {
   font-family: "Open Sans", serif;
   padding-top: 54px;
@@ -63,7 +64,6 @@ h2 {
 
 #sideNav .navbar-nav .nav-item .nav-link {
   font-weight: 600;
-  text-transform: uppercase;
 }
 
 @media (min-width: 992px) {
@@ -154,6 +154,9 @@ a:active {
   height: 0;
   overflow: hidden;
 }
+.iframe-container-vidsize {
+  padding-bottom: 70.25%;
+}
 .iframe-container iframe {
   position: absolute;
   top: 0;
@@ -183,4 +186,55 @@ a:active {
 }
 .lazy-load {
   opacity: 1;
+}
+/* styles.css */
+
+/* Overlay styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  backdrop-filter: blur(10px); /* Blur effect */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+/* Message box styles */
+.message-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.683);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Shadow for depth */
+  z-index: 1001; /* Above overlay */
+  text-align: center;
+}
+
+.message-content {
+  color: #333; /* Text color */
+}
+
+.message-content h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#startVideosButton {
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#startVideosButton:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.disabled-link {
+  pointer-events: none;
+  cursor: default; /* Optionally, to remove pointer cursor */
+  opacity: 0.5;
 }

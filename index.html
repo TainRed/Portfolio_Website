@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' https://player.vimeo.com https://f.vimeocdn.com; object-src 'none';"
+    />
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -8,6 +12,7 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
+
     <!-- below meta should be in with the connet stuf -->
 
     <!-- <meta
@@ -22,7 +27,7 @@
     default-src 'self'; 
       connect-src 'self' https://f.vimeocdn.com https://player.vimeo.com https://fonts.googleapis.com https://fonts.gstatic.com;"
     /> -->
-    <title>Resume - Start Bootstrap Theme</title>
+    <title>Tareque Uddin Portfolio</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -48,13 +53,11 @@
 
     <!-- Custom styles for this template -->
     <link href="css/resume.css" rel="stylesheet" />
-    <script src="js/lazy-load.js" defer></script>
-    <script src="js/iframe-script.js" defer></script>
   </head>
 
   <body id="page-top">
     <nav
-      class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"
+      class="disableL navbar navbar-expand-lg navbar-dark bg-primary fixed-top"
       id="sideNav"
     >
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
@@ -115,6 +118,14 @@
     </nav>
 
     <div class="container-fluid p-0">
+      <div id="interactionOverlay" class="overlay">
+        <div class="message-box">
+          <div class="message-content">
+            <h2>Please scroll slowly to reduce lag</h2>
+            <button id="startVideosButton" class="btn btn-primary">Okay</button>
+          </div>
+        </div>
+      </div>
       <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
         <div class="">
           <h1 class="mb-0">
@@ -127,28 +138,28 @@
               >tarequeuddin.user@gmail.com</a
             >
           </div>
-          <p class="mb-5">
+          <h3 class="mb-5">
             Specialising in User interface and Experience design.
-          </p>
+          </h3>
           <ul class="list-inline list-social-icons mb-0">
-            <li class="list-inline-item">
+            <!-- <li class="list-inline-item">
               <a href="#">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
                 </span>
               </a>
-            </li>
-            <li class="list-inline-item">
+            </li> -->
+            <!-- <li class="list-inline-item">
               <a href="#">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
                 </span>
               </a>
-            </li>
+            </li> -->
             <li class="list-inline-item">
-              <a href="#">
+              <a href="https://www.linkedin.com/in/tareque-uddin/">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
@@ -156,7 +167,7 @@
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="#">
+              <a href="https://github.com/TainRed">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -173,12 +184,13 @@
       >
         <img src="img/content/Brief_/Brief smart-barter.png" />
         <img src="img/content/Brief_/to solve.png" />
+        <!-- context video -->
         <div class="iframe-container-sound">
           <iframe
-            id="video2"
-            src="https://player.vimeo.com/video/972312905?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=1&amp;player_id=0&amp;app_id=58479&amp;amp=&amp;muted=1;amp"
+            id="video1"
+            data-src="https://player.vimeo.com/video/972312905?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=1&amp;player_id=0&amp;app_id=58479&amp;amp=&amp;muted=1;amp"
             allow="autoplay"
-            sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-presentation"
+            sandbox="allow-scripts allow-same-origin allow-presentation"
           ></iframe>
         </div>
         <img
@@ -214,18 +226,17 @@
         />
         <div class="iframe-container">
           <iframe
-            id="video3"
-            src="https://player.vimeo.com/video/972374828?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
-            allow="autoplay"
+            id="video1"
+            data-src="https://player.vimeo.com/video/972374828?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
             allow="autoplay"
             sandbox="allow-same-origin allow-scripts allow-pointer-lock"
           ></iframe>
         </div>
+        <!-- video 2 -->
         <div class="iframe-container">
           <iframe
-            id="video3"
-            src="https://player.vimeo.com/video/929569543?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
-            allow="autoplay"
+            id="video1"
+            data-src="https://player.vimeo.com/video/929569543?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
             allow="autoplay"
             sandbox="allow-same-origin allow-scripts allow-pointer-lock"
           ></iframe>
@@ -421,27 +432,10 @@
           data-src="img/content/styleguide/style guide_wrong colours.png"
           alt="Image 1"
         />
-
         <div class="iframe-container">
           <iframe
             id="video1"
-            src="https://player.vimeo.com/video/929569543?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
-            allow="autoplay"
-            allow="autoplay"
-            sandbox="allow-same-origin allow-scripts allow-pointer-lock"
-          ></iframe>
-        </div>
-
-        <img
-          class="lazy"
-          data-
-          src="img/content/task flow/task flow export -_product details via serach.png"
-          alt="Image 1"
-        />
-        <div class="iframe-container">
-          <iframe
-            id="video1"
-            src="https://player.vimeo.com/video/981932103?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
+            data-src="https://player.vimeo.com/video/929569543?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
             allow="autoplay"
             allow="autoplay"
             sandbox="allow-same-origin allow-scripts allow-pointer-lock"
@@ -449,14 +443,13 @@
         </div>
         <img
           class="lazy"
-          data-
-          src="img/content/task flow/task flow export -_quick add.png"
+          data-src="img/content/task flow/product details via serach.png"
           alt="Image 1"
         />
         <div class="iframe-container">
           <iframe
             id="video1"
-            src="https://player.vimeo.com/video/981932131?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
+            data-src="https://player.vimeo.com/video/981932103?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
             allow="autoplay"
             allow="autoplay"
             sandbox="allow-same-origin allow-scripts allow-pointer-lock"
@@ -464,30 +457,109 @@
         </div>
         <img
           class="lazy"
-          data-
-          src="img/content/task flow/task flow export -_section delete.png"
+          data-src="img/content/task flow/quick add.png"
           alt="Image 1"
         />
-        <iframe
-          id="video1"
-          src="https://player.vimeo.com/video/981932034?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
-          allow="autoplay"
-          allow="autoplay"
-          sandbox="allow-same-origin allow-scripts allow-pointer-lock"
-        ></iframe>
+        <div class="iframe-container">
+          <iframe
+            id="video1"
+            data-src="https://player.vimeo.com/video/981932131?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
+            allow="autoplay"
+            allow="autoplay"
+            sandbox="allow-same-origin allow-scripts allow-pointer-lock"
+          ></iframe>
+        </div>
         <img
           class="lazy"
-          data-
-          src="img/content/task flow/task flow export -_single delete.png"
+          data-src="img/content/task flow/section delete.png"
           alt="Image 1"
         />
-        <iframe
-          id="video1"
-          src="https://player.vimeo.com/video/981932073?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
-          allow="autoplay"
-          allow="autoplay"
-          sandbox="allow-same-origin allow-scripts allow-pointer-lock"
-        ></iframe>
+        <div class="iframe-container">
+          <iframe
+            id="video1"
+            data-src="https://player.vimeo.com/video/981932034?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
+            allow="autoplay"
+            allow="autoplay"
+            sandbox="allow-same-origin allow-scripts allow-pointer-lock"
+          ></iframe>
+        </div>
+        <img
+          class="lazy"
+          data-src="img/content/task flow/single delete.png"
+          alt="Image 1"
+        />
+        <div class="iframe-container">
+          <iframe
+            id="video1"
+            data-src="https://player.vimeo.com/video/984444348?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
+            allow="autoplay"
+            allow="autoplay"
+            sandbox="allow-same-origin allow-scripts allow-pointer-lock"
+          ></iframe>
+        </div>
+        <div class="iframe-container">
+          <iframe
+            id="video1"
+            data-src="https://player.vimeo.com/video/984444491?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
+            allow="autoplay"
+            allow="autoplay"
+            sandbox="allow-same-origin allow-scripts allow-pointer-lock"
+          ></iframe>
+        </div>
+        <div class="iframe-container">
+          <iframe
+            id="video1"
+            data-src="https://player.vimeo.com/video/984444699?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
+            allow="autoplay"
+            allow="autoplay"
+            sandbox="allow-same-origin allow-scripts allow-pointer-lock"
+          ></iframe>
+        </div>
+        <div class="iframe-container">
+          <iframe
+            id="video1"
+            data-src="https://player.vimeo.com/video/984444907?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
+            allow="autoplay"
+            allow="autoplay"
+            sandbox="allow-same-origin allow-scripts allow-pointer-lock"
+          ></iframe>
+        </div>
+        <div class="iframe-container">
+          <iframe
+            id="video1"
+            data-src="https://player.vimeo.com/video/984445106?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
+            allow="autoplay"
+            allow="autoplay"
+            sandbox="allow-same-origin allow-scripts allow-pointer-lock"
+          ></iframe>
+        </div>
+        <div class="iframe-container">
+          <iframe
+            id="video1"
+            data-src="https://player.vimeo.com/video/984445218?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
+            allow="autoplay"
+            allow="autoplay"
+            sandbox="allow-same-origin allow-scripts allow-pointer-lock"
+          ></iframe>
+        </div>
+        <div class="iframe-container">
+          <iframe
+            id="video1"
+            data-src="https://player.vimeo.com/video/984445331?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
+            allow="autoplay"
+            allow="autoplay"
+            sandbox="allow-same-origin allow-scripts allow-pointer-lock"
+          ></iframe>
+        </div>
+        <div class="iframe-container">
+          <iframe
+            id="video1"
+            data-src="https://player.vimeo.com/video/984445516?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;player_id=0&amp;app_id=58479&amp;amp"
+            allow="autoplay"
+            allow="autoplay"
+            sandbox="allow-same-origin allow-scripts allow-pointer-lock"
+          ></iframe>
+        </div>
       </section>
 
       <section
@@ -518,14 +590,21 @@
         <h2>Project inprogress - Coming soon!</h2>
       </section>
     </div>
+
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
     <!-- Custom scripts for this template -->
     <script src="js/resume.min.js"></script>
+    <!-- Custom scripts for lazy load, iframes and landing button -->
+    <script src="js/landing-message.js"></script>
+    <script src="js/lazy-load.js"></script>
+    <script src="js/iframe-script.js"></script>
+    <!-- Vimeo API -->
     <script src="https://player.vimeo.com/api/player.js"></script>
   </body>
 </html>
