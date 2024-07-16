@@ -238,12 +238,12 @@ a:active {
   cursor: default; /* Optionally, to remove pointer cursor */
   opacity: 0.5;
 }
-.horizontal-line {
+/* .horizontal-line {
   position: fixed;
   left: 0;
   right: 0;
-  top: 50%; /* Adjust to position the line */
+  top: 50%; 
   height: 1px;
-  background-color: red; /* Adjust color as needed */
-  z-index: 9999; /* Ensure it's above other elements */
-}
+  background-color: red;
+  z-index: 9999; 
+} */
