@@ -33,11 +33,17 @@ h3 {
   font-size: 1.25rem;
 }
 
+.nav-link {
+  font-size: 1.35em;
+}
 .subheading {
   /* text-transform: uppercase; */
   font-weight: 500;
-  font-family: "Saira Extra Condensed", serif;
-  font-size: 1.35rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.25rem;
+}
+.subheading1 {
+  font-size: 1.15rem;
 }
 
 .list-social-icons a {
@@ -72,20 +78,20 @@ section.resume-section .resume-item .resume-date {
 }
 
 .bg-primary {
-  background-color: #bd5d38 !important;
+  background-color: #373737 !important;
 }
 
 .text-primary {
-  color: #bd5d38 !important;
+  color: black;
 }
 
 a {
-  color: #bd5d38;
+  color: white;
 }
 a:hover,
 a:focus,
 a:active {
-  color: #824027;
+  color: #ddddff;
 }
 .iframe-container {
   position: relative;
@@ -188,6 +194,20 @@ a:active {
   background-color: none;
   z-index: 9999;
 }
+
+.rounded-circle {
+  width: 8rem;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  section.resume-section {
+    min-height: 100vh;
+  }
+  section.resume-section .resume-item .resume-date {
+    min-width: 18rem;
+  }
+}
 @media (min-width: 992px) {
   body {
     padding-top: 0;
@@ -211,8 +231,8 @@ a:active {
     padding: 0.5rem;
   }
   #sideNav .navbar-brand .img-profile {
-    max-width: 10rem;
-    max-height: 10rem;
+    max-width: 8rem;
+    max-height: 8rem;
     border: 0.5rem solid rgba(255, 255, 255, 0.2);
   }
   #sideNav .navbar-collapse {
@@ -232,18 +252,6 @@ a:active {
   #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
     display: block;
   }
-}
-
-@media (min-width: 768px) {
-  section.resume-section {
-    min-height: 100vh;
-  }
-  section.resume-section .resume-item .resume-date {
-    min-width: 18rem;
-  }
-}
-
-@media (min-width: 992px) {
   /* section.resume-section {
     padding-top: 3rem !important;
     padding-bottom: 3rem !important;
