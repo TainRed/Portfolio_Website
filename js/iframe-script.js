@@ -1,4 +1,3 @@
-console.log("connected to lazy load iframe script ");
 document.addEventListener("DOMContentLoaded", function () {
   const iframesArray = Array.from(
     document.querySelectorAll("iframe[data-src]")
