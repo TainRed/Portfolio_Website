@@ -154,7 +154,7 @@ a:active {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.683);
-  padding: 20px;
+  padding: 20px 60px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Shadow for depth */
   z-index: 1001; /* Above overlay */
