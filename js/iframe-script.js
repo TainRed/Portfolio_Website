@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
       iframe.src = iframe.dataset.src;
       iframe.classList.remove("lazy-load");
       iframe.dataset.loaded = "true";
-      console.log(`Iframe loaded: ${iframe.dataset.src}`);
+      // console.log(`Iframe loaded: ${iframe.dataset.src}`);
 
       // Play the Vimeo video programmatically
       iframe.contentWindow.postMessage('{"method":"play"}', "*");
@@ -20,13 +20,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (iframe.dataset.loaded === "true") {
       // Pause the Vimeo video
       iframe.contentWindow.postMessage('{"method":"pause"}', "*");
-      console.log(`Iframe paused: ${iframe.dataset.src}`);
+      // console.log(`Iframe paused: ${iframe.dataset.src}`);
 
       // Unload the iframe by resetting its src
       iframe.src = "";
       iframe.classList.add("lazy-load");
       iframe.dataset.loaded = "false";
-      console.log(`Iframe unloaded: ${iframe.dataset.src}`);
+      // console.log(`Iframe unloaded: ${iframe.dataset.src}`);
     }
   };
 
