@@ -289,9 +289,7 @@ a:active {
 #Shop-Barter {
   background-color: #e6f9ff;
 }
-.view {
-  text-align: center;
-}
+
 @media (max-width: 767px) {
   section.resume-section {
     min-height: 100vh;
