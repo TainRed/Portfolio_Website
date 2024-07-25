@@ -186,13 +186,13 @@ document.addEventListener("DOMContentLoaded", function () {
     let rootMarginFraction;
 
     if (viewportHeight <= 600) {
-      rootMarginFraction = 0.5; // Adjust for smaller screens
+      rootMarginFraction = 1.15; // Adjust for smaller screens
       console.log("Using root margin for viewport <= 600px");
     } else if (viewportHeight <= 800) {
-      rootMarginFraction = 0.75; // Adjust for medium-sized screens
+      rootMarginFraction = 1.5; // Adjust for medium-sized screens
       console.log("Using root margin for viewport <= 800px");
     } else {
-      rootMarginFraction = 1.0; // Default for larger screens
+      rootMarginFraction = 2; // Default for larger screens
       console.log("Using root margin for larger viewports");
     }
 

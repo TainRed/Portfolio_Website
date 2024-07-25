@@ -93,46 +93,7 @@ a:focus,
 a:active {
   color: #ddddff;
 }
-.iframe-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-}
-.iframe-container-vidsize {
-  padding-bottom: 70.25%;
-}
-.iframe-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-.iframe-container-sound {
-  position: relative;
-  width: 100%;
-  padding-bottom: 59.5%;
-  height: 0;
-  overflow: hidden;
-}
-.iframe-container-sound iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-.lazy {
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-.lazy-load {
-  opacity: 1;
-}
+
 /* styles.css */
 
 /* Overlay styles */
@@ -184,8 +145,8 @@ a:active {
   cursor: default; /* Optionally, to remove pointer cursor */
   opacity: 0.5;
 }
-/* Don't delete, needed for the iframe load, unload, play and pause*/
-.horizontal-line {
+/* Don't delete, needed for the iframe load, unload, play and pause - before changing to section loading*/
+/* .horizontal-line {
   position: fixed;
   left: 0;
   right: 0;
@@ -193,13 +154,152 @@ a:active {
   height: 1px;
   background-color: none;
   z-index: 9999;
-}
+} */
 
 .rounded-circle {
   width: 8rem;
   object-fit: cover;
 }
 
+/* new code */
+/* General Styles */
+.hidden {
+  display: none;
+}
+
+/* Project Section Styles */
+.project-section {
+  position: relative;
+  cursor: default; /* Default cursor for sections */
+  margin-bottom: 20px;
+}
+
+.project-section.has-video {
+  cursor: pointer; /* Hand cursor for sections with video */
+}
+
+.project-section.open {
+  cursor: default; /* Default cursor for open sections */
+}
+
+/* Project Details Styles */
+.project-details {
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.project-details img,
+.project-details iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Close Button Styles */
+.close-btn {
+  position: sticky;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 1000;
+  display: none; /* Hidden by default */
+}
+
+.close-btn i {
+  margin: 0; /* Remove any default margin */
+}
+
+.close-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* Iframe Container Styles */
+.iframe-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.iframe-container-vidsize {
+  padding-bottom: 70.25%; /* Adjusted for different aspect ratios */
+}
+
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.iframe-container-sound {
+  position: relative;
+  width: 100%;
+  padding-bottom: 59.5%; /* Adjusted for different aspect ratios */
+  height: 0;
+  overflow: hidden;
+}
+
+.iframe-container-sound iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Lazy Load Styles */
+.lazy {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.lazy-load {
+  opacity: 1;
+}
+
+/* Horizontal Line Styles */
+.horizontal-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: none; /* For testing; change as needed */
+  top: 50%; /* Center the line vertically in the section */
+  z-index: 10;
+}
+#Shop-Barter {
+  background-color: #e6f9ff;
+}
+@media (max-width: 767px) {
+  section.resume-section {
+    min-height: 100vh;
+  }
+  section.resume-section .resume-item .resume-date {
+    min-width: 18rem;
+  }
+  .message-box {
+    padding: 10px 30px;
+  }
+}
 @media (min-width: 768px) {
   section.resume-section {
     min-height: 100vh;
